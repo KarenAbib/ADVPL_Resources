@@ -32,4 +32,20 @@ Static Function ModelDef()
     oModel:AddFields("FORMZZB", , oStZZB)
 
     oModel:SetPrimaryKey({'ZZB_FILIAL','ZZB_COD'})
+
+    oModel:SetDescription("Descricao do modelo de dados")
+
+    oModel:GetModel("FORMZZB"):SetDescription("Formulario de Cadastro")
+
+Return oModel
+
+Static Function ViewDef()
+
+    Local aStruZZB := ZZB->(DbStruct())
+    Local oModel := FWLoadModel("MVC001")
+    Local oView := Nil
+
+    oView := FWFormView():New()
+    oView:SetModel(oModel)
+
 Return
