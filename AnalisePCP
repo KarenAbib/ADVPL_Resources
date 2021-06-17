@@ -1,0 +1,130 @@
+Objetivos básicos de um departamento de compras:
+- Obter um fluxo contínuo de suprimentos a fim de a produção.
+- Comprar materiais e insumos, obedecendo aos padrões de quantidade e qualidade pré-definidos.
+
+Necessidades Reguladoras de Estoque
+- Consumo Médio;
+- Ponto Pedido;
+- Projeção de Estoques Futuros;
+
+
+Poderá haver movimentações entre os almoxarifados, devendo ser identificado o fato migratório entre armazéns.
+itens poderão ser substituídos dentro do armazém de acordo com o fato de ser o mesmo produto, porém com origens
+distintas. 
+O consumo não produtivo deverá ser registrado no Kardex identificando qual área é responsável pela sua utilização.
+Havendo divergência entre o sistema eletrônico e o físico real deverá ser tratado como Inventário e todos os procedimentos de analise e correção de quantidades e custos deverão estar identificados em relatórios específicos para analises dos mesmos com a finalidade de justificar na contabilidade a divergência com o custo total identificado em balancete.
+
+1.1 COMPRAS
+Recebimento de mercadoria deve se dar através de uma preliminar analise de quantidade, valores unitários e totais, devendo a escrituração fiscal e contábil assim como a atualização de saldos e custos e financeiro a cargo da equipe de Controladoria
+
+1.2 ENGENHARIA
+Durante o processo produtivo necessita-se que a formulação para a produção deverá ser transcrito para o sistema de acordo com a ficha técnica do produto de venda assim como seus componentes.
+
+1.3 PRODUÇÃO
+As necessidades produtivas devem estar identificadas a cada movimento e acompanhadas através de registro de livro Kardex e conjunto o sua variação nos valores aplicados dentro da produção.
+A produção deverá ter documentos com referencia ao produto, data de inicio, quantidade, total consumido, total produzido, quantidade de perda de consumo de matéria prima, assim como, o total perdido no processo produtivo que deverá fazer parte do custo final da produção.
+
+1.4 REGRAS COMERCIAIS PARA O PRODUTO
+Saídas para clientes podendo ser classificadas como Demonstração, Vendas, Consignação ou para Fornecedores classificados como Beneficiamento, Devolução de Compras, Remessa para conserto e as Entradas de Fornecedores Demonstração, Compras, Consignação ou Clientes classificadas como Beneficiamento, Devolução de Vendas, Remessa para conserto. Temos outras situações que não se apresentam como negócios mas, fazem parte do processo tais como a Impostos sendo para Entrada o Complemento de ICMS/IPI/ISS/PIS/COFINS, Frete, Despesas e para Saída também teremos o Complemento de ICMS/IPI/ISS/PIS/COFINS, Frete e Despesas.
+
+1.5 PROJEÇÃO DE ESTOQUE >>
+SALDOS INICIAIS - O cadastro Saldos iniciais permite informar a posição inicial do estoque de um produto.
+os três tipos de saldo que podem ser consultados no Sistema:
+- Saldo Inicial - é o saldo no início do período (normalmente do mês), utilizado para reprocessamentos do recálculo do custo médio e no acerto do saldo atual.
+- No processo de fechamento e virada de saldos, é criado um novo registro de saldo inicial com base no saldo final do período.
+- Saldo Final - é o saldo final do período (normalmente do mês), utilizado para emissão dos relatórios de fechamento. É atualizado pelo recálculo do custo médio ou pela rotina -Saldo atual-, adequada para quem utiliza o custo médio on-line.
+
+*** É atualizado com os valores calculados no último processamento de virada de saldos. Essa informação é gravada nos
+campos B2_QFIM (quantidade final em estoque) e B2_VFIM1 a B2_VFIM5 (valor final em estoque das moedas 1 a 5).
+
+- Saldo Atual - é o saldo on-line que pode, também, ser recalculado pelo programa de Saldo Atual, que processa todos os movimentos cadastrados na base de dados, independe da data. Ele é gravado nos campos B2_QATU (quantidade atual em estoque) e B2_VATU1 a B2_VATU5 (valor atual em estoque das moedas 1 a 5).
+
+SALDOS EM ESTOQUE
+Trabalha como uma consulta aos saldos físicos e financeiros dos itens que tiveram movimentação de estoque, dados sobre empenhos, data do último inventário, endereçamento e saldo para endereçar. Permite incluir ou alterar o custo médio da mão-de-obra. Permite alterar o status do saldo de um produto em um armazém, bloqueando ou desbloqueando este saldo.
+
+TIPOS DE ENTRADA E SAÍDAS
+Calcular os tributos pertinentes ao documento registrado, Controlar a entrada e saída de produtos/valores no estoque, Incluir automaticamente títulos na carteira a receber, Registrar automaticamente os ativos imobilizados, Registrar a amarração “Cliente x Produto/Equipamentos” quando saída de um documento fiscal, Agregar despesas ao custo do projeto ou as receitas recebidas no projeto. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Faixa de 000 a 500 Entradas de Materiais ou Serviços
+Faixa de 501 a 999 Saídas de Materiais ou Serviços
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+REGRAS DE NEGÓCIO
+SAÍDAS
+- CLIENTES: Demonstração, Vendas, Consignação
+- FORNECEDORES : Beneficiação, Devolução de Compras, Remessa para Conserto
+ENTRADAS
+- CLIENTES: Demonstração, Vendas, Consignação
+- FORNECEDORES : Beneficiação, Devolução de Compras, Remessa para Conserto
+
+1.6 COMERCIALIZAÇÃO
+As vendas serão caracterizadas apenas pela emissão do documento fiscal que acompanhará a mercadoria até a sua entrega no cliente, dai se ternando parte integrante de seu ativo
+
+1.7 ENCERRAMENTO
+Será analisado o Custo final da mercadoria vendida em contra partida a quantidade adquirida no período e saldo inicial dos mesmos, devendo não haver divergências.
+
+2 ORGANIZAÇÃO DE COMPRAS
+- Autoridade para compra.
+- Registro de compras.
+- Registro de preços.
+- Registro de estoques e consumo.
+- Registro de fornecedores.
+- Arquivos e especificações.
+- Arquivos e catálogos.
+
+P.C.P: a relação existente entre compras e o P.C.P. é inerentemente tão estreita e fundamental que ambos encontram-se combinados em mais da metade das organizações industriais. Do ponto de vista funcional, o efeito almejado por esta estreita colaboração é estender a responsabilidade pelos materiais, desde o momento da aquisição até ao de entrega e utilização.
+
+OPERAÇÃO DOS SISTEMAS DE COMPRAS
+Documentação: anexada ao pedido, além de possibilitar o exame de cada fase de negociação no ato da segunda assinatura, permite sua revisão, estando sempre disponível junto ao processo de compra para esclarecer qualquer dúvida posterior.
+
+GESTÃO DE COMPRAS
+- Solicitação de compras: documento que autoriza o comprador a executar uma compra. É por meio desse documento que se inicia o processo de compra, tanto para materiais produtivos como para improdutivos. Esse documento possui diversas origens, entre elas destacam-se o P.C.P., um novo projeto em desenvolvimento etc. A solicitação de compra informa o que deve ser comprado, a quantidade, o prazo e local de entrega e, em alguns casos especiais, os prováveis fornecedores.
+
+- Cotação: registro do preço obtido a partir da oferta de diversos fornecedores sobre o material cuja compra foi solicitada. Deverá conter preço, quantidade e data do recebimento no departamento de compras.
+
+- Pedido de compra: contrato formal entre o estabelecimento e o fornecedor, que deve conter fielmente todas as condições e características da compra. Os pedidos de compra devem ser remetidos ao fornecedor por intermédio de um protocolo para o qual se farão registros e controles.
+
+PROCESSO DE COMPRA -> SOLICITAÇÃO DE COMPRA > COTAÇÃO > PEDIDO DE COMPRA > APROVAÇÃO DE COMPRAS > RECEBIMENTO
+
+SOLICITAÇÃO AO ARMAZÉM  -> EMPENHO À SOLICITAÇÃO > GERA PRÉ-REQUISITO > ANALISA ESTOQUE > SOLICITA COMPRA
+PEDIDO DE VENDAS        -> SALDO PREVISTO A SAIR > ORDEM DE PRODUÇÃO COM PV > EMPENHOS DE ESTRUTURA > SOLICITAÇÃO DE COMPRA
+PROJEÇÃO DE ESTOQUE MRP -> PREVISÃO DE VENDAS / PLANO MESTRE DE PRODUÇÃO > ANÁLISE DE SALDO NA ESTRUTURA > IDENTIFICAÇÃO DE FALTAS > SOLICITAÇÃO DE COMPRAS
+
+
+
+
+
+3 FLUXO OPERACIONAL
+
+
+4 FORMAÇÃO DE MATERIAIS
+
+4.1 PRODUTO
+4.1.1 PASTAS CADASTRAIS
+B1_COD – Identificador único do produto, B1_DESC – Descrição do produto, B1_UM Unidade de medida principal do produto, B1_LOCPAD É o armazém padrão para armazenagem do produto, B1_TIPO – Tipo do produto. Característica do produto que utiliza tabela do Sistema. Alguns tipos de produto pré- cadastrados são:
+* PA (Produto acabado)
+* PI (Produto intermediário)
+* MC (Matéria de consumo)
+* BN (Beneficiamento)
+*** o tipo de produto “TIPO BN” não gera empenho para Op
+B1_APROPRI Tipo de apropriação do produto. O produto pode ser de apropriação direta ou indireta. Os produtos de apropriação indireta são produtos de difícil controle e contagem, sendo requisitados normalmente em quantidade maior do que a necessária para um armazém de processo. À medida que os consumos ocorrem, esse saldo em processo é requisitado.
+
+4.1.2 PASTA MRP/SUPRIMENTOS/PCP
+B1_QE Quantidade por embalagem, B1_EMIN Ponto de pedido do produto, B1_ESTSEG Estoque de segurança, B1_ESTFOR Fórmula do estoque de segurança, B1_PE Prazo de entrega do produto, B1_FORPRZ Fórmula do prazo de entrega, B1_LE Lote econômico do produto, B1_LM Lote mínimo do produto, B1_EMAX Estoque máximo do produto.
+
+4.1.3 PASTA CADASTRAIS
+B1_UPRC Último preço de compra, B1_CUSTD Custo Standard do produto. Informação do custo de reposição, calculado ou informado para o produto.Para obter esses dados o campo da “TES”, “F4_UPRC , os campos da TES que podem influenciar nesse calculo são: F4_CREDICM e F4_CREDIPI, B1_UCOM Data da última compra.
+
+4.2 PRODUTOS
+MATÉRIA PRIMA -> TRANSFORMAÇÃO  |   INSUMOS -> AGREGADO À PRODUÇÃO  |   CONSUMO -> AGREGADOS AOS PROCESSOS PRODUTIVOS, CONSUMÍVEIS PARA ADMINISTRAÇÃO   |   SEMIACABADOS -> PARTE DO PROCESSO, CONJUNTOS, INTERMEDIÁRIO, A BENEFICIAR   | BENEFICIADOS -> MATÉRIA PRIMA, SEMIACABADOS ENVIADOS A FORNECEDORES PARA TRATAMENTO, MONTAGEM QUE SERÃO AGREGADOS AOS CUSTOS DE SERVIÇOS    |   PRODUTO ACABADO -> PRODUTO PRONTO PARA COMERCIALIZAÇÃO    |   MÃO DE OBRA DIRETA -> CUSTO DE PRODUÇÃO E OU MANIPULAÇÃO MANUAL
+
+ESTRUTURA
+O cadastro de Estruturas, lista de materiais ou BILL OF MATERIALS, é utilizado para cálculode necessidades, explosão dessas necessidades e detalhamento da composição dos produtos.
+INFORMAÇÕES DO CADASTRO DE ESTRUTURAS
+Código, Unidade, Revisão, Estrutura Similar, Quantidade
+
+
+
+
+
+
+
