@@ -42,6 +42,35 @@ campos B2_QFIM (quantidade final em estoque) e B2_VFIM1 a B2_VFIM5 (valor final 
 SALDOS EM ESTOQUE
 Trabalha como uma consulta aos saldos físicos e financeiros dos itens que tiveram movimentação de estoque, dados sobre empenhos, data do último inventário, endereçamento e saldo para endereçar. Permite incluir ou alterar o custo médio da mão-de-obra. Permite alterar o status do saldo de um produto em um armazém, bloqueando ou desbloqueando este saldo.
 
+SALDO FIFO >>>
+
+SOLICITAÇÃO DE COMPRAS
+Documento que inicia o processo de compra, com info p/ executar a cotação e análise como: a quantidade, o prazo e local de entrega.
+Pode ser gerada: Manualmente, Pelo controle de lote econômico e ponto de pedido, Por necessidade da ordem de produção, Pela requisição de produtos ao armazém, Compra Centralizada através de outras Empresas ou filiais
+Opções da SC: Cópia, Impressão, Aprovação
+Cabeçalho: Número, Data de Emissão, Unid. Requis, Cód. Comprador, Filial de Entrega
+Itens: Produto, Quantidade, Necessidade, Armazém
+
+*Solicitações Automáticas de Compra
+Para a adequação das solicitações de compras geradas a partir dos pedidos de vendas vinculados a uma Ordem de Produção, na tabela de dados “SC6 – Itens dos Pedidos de Vendas”, foram criados os campos “Solicit. Compras” (C6_NUMSC) e “Item Solicit.”, (C6_ITEMSC) que serão preenchidos automaticamente pelo sistema.
+- Inclusão de um Pedido de Venda
+- Inclusão de uma Ordem de Produção
+- Solicitação por ponto de pedido
+***Ponto de Pedido é o ponto de reposição do material no estoque; ou seja, uma vez atingida a quantidade em estoque queinicia o processo de compras, pode-se efetuar a solicitação de compra.
+
+Solicitação de Compras/Autorizações de Entregas Prevista
+São geradas por ordens de produção previstas.A principal diferença entre a solicitação de compra prevista da solicitação de compra firme está no fato de que somente a firme pode
+iniciar o processo de compra; ou seja, o Sistema trata a prevista como uma solicitação bloqueada.
+
+Geração de Cotação de Preço
+Essa rotina permite gerar cotações com base nas solicitações de compras cadastradas.
+
+PEDIDO DE COMPRA
+Compras: Aceite de Condições Comerciais >> Financeiro: Apresentação do Dsembolso / Fluxo de Caixa >> Estoque: Quantidade prevista para entrar
+O pedido de compra pode ser gerado manualmente, relacionado a uma solicitação de compras previamente cadastrada ou automaticamente, por meio da análise da melhor cotação. No entanto, a existência de uma solicitação para a inclusão do pedido de compra não é obrigatória e depende da parametrização inicial.
+Um pedido de compra pode ser alterado até a entrega do material, seja para celebrar uma nova condição ou para cancelar o pedido de compra.
+
+
 TIPOS DE ENTRADA E SAÍDAS
 Calcular os tributos pertinentes ao documento registrado, Controlar a entrada e saída de produtos/valores no estoque, Incluir automaticamente títulos na carteira a receber, Registrar automaticamente os ativos imobilizados, Registrar a amarração “Cliente x Produto/Equipamentos” quando saída de um documento fiscal, Agregar despesas ao custo do projeto ou as receitas recebidas no projeto. 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -90,9 +119,6 @@ PEDIDO DE VENDAS        -> SALDO PREVISTO A SAIR > ORDEM DE PRODUÇÃO COM PV > 
 PROJEÇÃO DE ESTOQUE MRP -> PREVISÃO DE VENDAS / PLANO MESTRE DE PRODUÇÃO > ANÁLISE DE SALDO NA ESTRUTURA > IDENTIFICAÇÃO DE FALTAS > SOLICITAÇÃO DE COMPRAS
 
 
-
-
-
 3 FLUXO OPERACIONAL
 
 
@@ -119,8 +145,70 @@ MATÉRIA PRIMA -> TRANSFORMAÇÃO  |   INSUMOS -> AGREGADO À PRODUÇÃO  |   CO
 
 ESTRUTURA
 O cadastro de Estruturas, lista de materiais ou BILL OF MATERIALS, é utilizado para cálculode necessidades, explosão dessas necessidades e detalhamento da composição dos produtos.
+ESTRUTURAS: Relacionamento entre componentes    |   COMPOSIÇÃO: Quantidades, Indíces de perda, Data de Utilização, Observações, Opcionais   |   REVISÃO DE ESTRUTURA: Data de validade, Data de Utilização
 INFORMAÇÕES DO CADASTRO DE ESTRUTURAS
 Código, Unidade, Revisão, Estrutura Similar, Quantidade
+
+Pré-Estrutura
+Permite simular a criação de estruturas de produtos que a empresa deseja fabricar, sem causar nenhum tipo de interferência nas outras rotinas módulos causando necessidade. Pode ser utilizada para simulação da formação de preços do produto
+
+5 ORDEM DE PRODUÇÃO
+Relaciona todos os componentes e as etapas de fabricação determinadas pela sua estrutura. A ordem de produção pode ser incluída:
+- Manualmente.
+- por meio da rotina de geração de OPs por pedidos de venda.
+- Por meio da rotina de geração de OPs por ponto de pedido.
+- Por meio do MRP.
+Ao abrir a OP, é lida a estrutura do produto e são empenhados os componentes necessários para sua fabricação.
+Os produtos intermediários que não possuem saldo disponível terão ordens de produção geradas e as matérias-primas que
+não possuem saldo terão solicitações de compra ou autorizações de entrega geradas.
+Os empenhos gerados podem ser alterados em relação à quantidade, ao local, ao lote etc. Eles são baixados no momentoda produção, automaticamente, ou podem ser requisitados, manualmente, para a OP.
+Para identificar se um produto é comprado (matéria-prima) ou fabricado (produto intermediário), o Sistema verifica o arquivo de estruturas: o item que possui estrutura cadastrada é fabricado e os itens que não possuem estrutura são comprados.
+A ordem de produção é a entidade do Sistema que agrega o custo de vários insumos e transfere para outro.
+O custeio de uma ordem de produção nada mais é que a soma por nível dos custos dos componentes até chegarmos ao produto PAI.
+
+Tipo da ordem de produção:
+OP Firme – Ordem de produção que pode ser iniciada e ter seus itens empenhados, requisitados, comprados e/ou produzidos. É a ordem oficializada para produção.
+OP Prevista – É apenas uma ordem com previsão para produção. Deverá ser confirmada em uma rotina específica para essa finalidade e tornar-se uma ordem firme. Pode ter sido criada somente para simulação e não ser efetivamente produzida. Enquanto a OP estiver classificada como prevista, todos os empenhos, solicitações e pedidos serão considerados também  como previstos. Ao firmar a OP, todos os itens relacionados a ela serão firmados.
+
+Modelos de Ordem de Produção
+- Ordem de Produção Manual: Independente, Firme ou Revista, Empenhos
+- Ordem de Produção Por Pedido de Venda: Baseada em Necessidade, Firme, Empenhos
+- Ordem de Produção por MRP: Análise de todos os mapas de necessidade, Ponto pedido, Lote economico, Estoque de segurança, Prazo de entrega, Firme ou prevista, Empenhos
+
+Geração de Ordem Produção Por Vendas
+- Pedido de Venda utilizando TES que atualiza o estoque;
+- Produto no pedido de vendas
+
+Geração de Solicitação de Compras Por Ordem de Produção
+Observar os seguintes pontos:
+- Produto faz parte da estrutura de um produto
+- Produto não tem outros itens em sua estrutura inferior
+- A data de Inicio e fim na estrutura estão dentro dos limites de inicio e final da ordem de produção superior
+- Não haver saldo em estoque
+Somente serão gerados os documentos acima de forma automática se houver a geração de empenhos para toda a estrutura
+
+EMPENHO
+É a necessidade apresentada durante a geração de uma ordem de produção, demonstrando a falta de mercadorias confrontada com o saldo disponível atual ou calculada para uma determinada data.
+Ordem de Produção >> Saída por Estrutura >> Pré-Requisito >> Pedido de Venda >> MRP
+
+Os empenhos podem ser incluídos no Sistema de duas maneiras:
+Automaticamente – Através da inclusão de ordens de produção
+Manualmente – Rotina - Ajuste de Empenho
+
+MOVIMENTO DE MATERIAIS
+Processo de entrada de materiais no estoque
+-> Pré-Nota: Relaciona o pedido de compra, Quantidade a classificar   -> Documento de Entrada: Baixa de pré-nota, Baixa saldo de pedido de compras, Gera título no contas a pagar, Atualiza saldos disponíveis, Gera registros fiscais    -> Contabilização do Documento Fiscal de Entrada: Atualiza saldos do centro de custo quado há consumo, Atualiza registro de saldos nas contas de patrimonio
+
+Pré Nota de Entrada
+O Pré-nota de entrada ou (Pré-documento de entrada) consiste na informação de dados básicos para o recebimento de mercadorias, tais como: número da nota, fornecedor, produto, quantidade, valor unitário e total. O principal objetivo é permitir o registro da entrada do documento sem a necessidade da classificação do mesmo.
+Dessa forma, não é gerado nenhum lançamento fiscal, contábil ou financeiro, sendo apenas atualizado o estoque de produtos indisponível (quantidade não classificada).
+
+
+
+
+
+
+
 
 
 
