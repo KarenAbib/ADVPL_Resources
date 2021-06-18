@@ -119,10 +119,10 @@ PEDIDO DE VENDAS        -> SALDO PREVISTO A SAIR > ORDEM DE PRODUÇÃO COM PV > 
 PROJEÇÃO DE ESTOQUE MRP -> PREVISÃO DE VENDAS / PLANO MESTRE DE PRODUÇÃO > ANÁLISE DE SALDO NA ESTRUTURA > IDENTIFICAÇÃO DE FALTAS > SOLICITAÇÃO DE COMPRAS
 
 
-3 FLUXO OPERACIONAL
+3. FLUXO OPERACIONAL
 
 
-4 FORMAÇÃO DE MATERIAIS
+4. FORMAÇÃO DE MATERIAIS
 
 4.1 PRODUTO
 4.1.1 PASTAS CADASTRAIS
@@ -152,7 +152,7 @@ Código, Unidade, Revisão, Estrutura Similar, Quantidade
 Pré-Estrutura
 Permite simular a criação de estruturas de produtos que a empresa deseja fabricar, sem causar nenhum tipo de interferência nas outras rotinas módulos causando necessidade. Pode ser utilizada para simulação da formação de preços do produto
 
-5 ORDEM DE PRODUÇÃO
+5. ORDEM DE PRODUÇÃO
 Relaciona todos os componentes e as etapas de fabricação determinadas pela sua estrutura. A ordem de produção pode ser incluída:
 - Manualmente.
 - por meio da rotina de geração de OPs por pedidos de venda.
@@ -203,7 +203,67 @@ Pré Nota de Entrada
 O Pré-nota de entrada ou (Pré-documento de entrada) consiste na informação de dados básicos para o recebimento de mercadorias, tais como: número da nota, fornecedor, produto, quantidade, valor unitário e total. O principal objetivo é permitir o registro da entrada do documento sem a necessidade da classificação do mesmo.
 Dessa forma, não é gerado nenhum lançamento fiscal, contábil ou financeiro, sendo apenas atualizado o estoque de produtos indisponível (quantidade não classificada).
 
+DOCUMENTO DE ENTRADA
+Essa rotina permite o registro de qualquer movimento de entrada de mercadorias, na empresa. A entrada das mercadorias inicia um processo de atualização on-line de dados financeiros, contábeis e de estoques e custos.
+Além disso, a rotina permite que os materiais recebidos pelo cadastro Recebimento de materiais sejam classificados e os devidos lançamentos efetuados.
 
+6. TIPOS DE MOVIMENTOS
+Como ocorrem os movimentos de materiais no estoque
+MOVIMENTOS INTERNOS 
+- Requisição      -> De consumo, Ordem de Produção, Material de apropriação indireto, Acerto de custo, Inventário >>>
+- Transferências  -> Entre armazéns, entre produtos >>>
+- Devolução       -> Consumo, Ordem de produção, Material indireto, Acerto de custos, Inventário >>>
+- Produção        -> Manual, Automático, PCP1, PCP2
+
+Movimentações Internas de Entrada de Material em Estoque
+0 a 500             D – Devolução Registra uma entrada de saldo, “devolvendo” um saldo anteriormente requisitado ou simplesmente uma entrada de saldo semjustificativa formal.(499 é reservado)   P – Produção Registra uma entrada de saldo por apontamento de produção.
+
+Movimentações Internas de Saída de Material em Estoque
+501 a 999           R – Requisição Registra uma saída de saldo por requisição e consequente consumo de saldo.
+(999 é reservado)
+
+REQUISIÇÕES
+CONSUMO   ->  Manual na produção, Manual centro de custos, Manual perdas
+PRODUÇÃO  ->  Manual direta, Automática indireta, Automática direta
+ACERTO    ->  Automática de inventário, Manual de custos
+
+Esse movimento tem por finalidade remover o saldo em estoque e transferir o custo para a produção ou para o centro de custo de consumo dos departamentos. Exemplo: Material de limpeza, manutenção de maquinas, material de escritório ou outro tipo qualquer de consumo.
+
+Requisição Manual para Consumo - Movimentação de material que tenha como finalidade o consumo e não interferindo diretamente no custo produtivo
+
+Requisição Manual para Ordem de Produção - Toda e qualquer de matéria prima, insumo ou material de consumo destinado a confecção, montagem, desenvolvimento
+
+Requisição Manual de Consumo Indireto Para Produção - Com a dificuldade de administrar produtos volateis ou de dificil quantificação durante o processo produtivo, denominamos
+que existe um movimento de requisição manual (RE3) para produção, ou seja, retira-se o produto de seu almoxarifado
+padrão e envia-se para a produção mesmo sem saber em qual ordem de produção ou até mesmo quando será consumida.
+
+Requisição Manual de Consumo Indireto - Quando o produto de consumo é de dificil quantifação e será utilizado para uso distinto dentro da empresa e que não seja utilizado para a produção.
+
+Requisição Automática de Consumo na Produção - Baseada na quantidade informada na estrutura do produto, a mesma foi empenhada para o local de produção/Processo (MV_LOCPROC) e foi empenhado manualmente ou automaticamente para a ordem de produção, dessa maneira ao executar o apontamento da ordem de produção o sistema irá executar de forma automática independente ao operador a requisição (RE2) do material de consumo de apropriação indireta (SB1->B1_APROPRI=”I”).
+
+Requisição Automáticas de Produção - Baseia se na requisição automática MV_REQAUT os empenhos (SD4) e no movimento de produção proporcional MV_BXPROP
+
+Requisição Automática Para Produção ou Projeto - Esse modelo de requisição (RE5) é utilizado quando se necessita atrelar o custo real de entrada a um documento seja ele de produção ou projeto, havendo a informação de numero de ordem de produção, item e sequencia de produção ou informa o projeto, EDT e tarefa. Esse modelo é muito adotado para transferência direta de beneficiamento tratando assim a devolução de controle de poder de terceiros.
+
+DEVOLUÇÕES
+CONSUMO   ->  Manual na produção, Manual centro de custos
+PRODUÇÃO  ->  Manual direta
+ACERTO    ->  Automática de inventário, Manual de custos
+
+Devolução Manual Consumo - É a movimentação de entrada (DE3) no almoxarifado do material que tenha como finalidade o consumo e não utilizada diretamente no custo produtivo, devendo ser informado o centro de custo para apropriação do valor no custo contábil.
+
+Devolução Manual para Ordem de Produção - É Devolução (DE0) de toda e qualquer de matéria prima, insumo ou material de consumo a se destinada ao almoxarifado destino sabendo se que não foi utilizada na confecção, montagem, desenvolvimento ou seja, toda transformação em que o produto sofrerá durante o processo de produção.
+Essa movimentação dá-se ao finalizar uma produção total ou parcial e identificar que há produtos que não foram utilizados parcial/total, podendo assim ser armazenado para uma proxima produção. Dessa forma reduzindo o custo apropriado a ordem de produção.
+
+Devolução Manual de Consumo Indireto Para Produção - Com a dificuldade de administrar produtos volateis ou de dificil quantificação durante o processo produtivo, denominamos que existe um movimento de devolução manual (DE3) da produção, ou seja, retira-se o produto da produção e enviado ao seu almoxarifado padrão.
+
+Devolução Manual de Consumo Indireto - Essa devolução manual (DE0) dá-se quando o produto de consumo tem seu saldo corrigido manualmente com a entrada
+do mesmo através ajustes.
+
+PRODUÇÃO 
+Produções
+MANUAL      ->    Com empenho, Sem empenho, Com custo, Sem custo
+AUTOMÁTICA  ->    Produto Intermediário
 
 
 
