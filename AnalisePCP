@@ -278,6 +278,12 @@ Desmontagem de Produtos - Esta rotina possibilita a realização das transferên
 - Prazo de entrega ou Lead-time
 - MRP
 
+MRP I - Material Requirements Planning, ou Planejamento das Necessidades de Materiais
+o MRP I está relacionado à compra de materiais para indústrias, uma espécie de automação da reposição de estoque. Ele se baseia na demanda pelos produtos para elaborar essa lista.
+MRP II - Manufacturing Resource Planning ou Planejamento dos Recursos de Manufatura.
+O MRP II, por outro lado, vai além: permite antecipar exigências futuras com base no histórico de compras da organização. Ou seja, esse sistema não apenas automatiza as aquisições como gera sugestões de listas posteriores.
+Entretanto, apenas o MRP II conta com funções vinculadas como planejamento de vendas, negócios, operações, requisitos e capacidade de estoque.
+
 Objetivo do MRP
 - Rotatividade de estoque – Análise de Custo Médio/FIFO, Custo indireto de manutenção e armazenagem e o custo de perda por obsolescência ou vencimento;
 - Atendimento aos prazos – Reduzir faltas de material e horas de improdutividade, evitar reprogramação acarretando ineficiência nos prazos, eliminação de custos diretos não previstos como horas extras e retrabalho;
