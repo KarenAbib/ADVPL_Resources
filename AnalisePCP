@@ -9,8 +9,7 @@ Necessidades Reguladoras de Estoque
 
 
 Poderá haver movimentações entre os almoxarifados, devendo ser identificado o fato migratório entre armazéns.
-itens poderão ser substituídos dentro do armazém de acordo com o fato de ser o mesmo produto, porém com origens
-distintas. 
+itens poderão ser substituídos dentro do armazém de acordo com o fato de ser o mesmo produto, porém com origens distintas. 
 O consumo não produtivo deverá ser registrado no Kardex identificando qual área é responsável pela sua utilização.
 Havendo divergência entre o sistema eletrônico e o físico real deverá ser tratado como Inventário e todos os procedimentos de analise e correção de quantidades e custos deverão estar identificados em relatórios específicos para analises dos mesmos com a finalidade de justificar na contabilidade a divergência com o custo total identificado em balancete.
 
@@ -34,8 +33,7 @@ os três tipos de saldo que podem ser consultados no Sistema:
 - No processo de fechamento e virada de saldos, é criado um novo registro de saldo inicial com base no saldo final do período.
 - Saldo Final - é o saldo final do período (normalmente do mês), utilizado para emissão dos relatórios de fechamento. É atualizado pelo recálculo do custo médio ou pela rotina -Saldo atual-, adequada para quem utiliza o custo médio on-line.
 
-*** É atualizado com os valores calculados no último processamento de virada de saldos. Essa informação é gravada nos
-campos B2_QFIM (quantidade final em estoque) e B2_VFIM1 a B2_VFIM5 (valor final em estoque das moedas 1 a 5).
+*** É atualizado com os valores calculados no último processamento de virada de saldos. Essa informação é gravada nos campos B2_QFIM (quantidade final em estoque) e B2_VFIM1 a B2_VFIM5 (valor final em estoque das moedas 1 a 5).
 
 - Saldo Atual - é o saldo on-line que pode, também, ser recalculado pelo programa de Saldo Atual, que processa todos os movimentos cadastrados na base de dados, independe da data. Ele é gravado nos campos B2_QATU (quantidade atual em estoque) e B2_VATU1 a B2_VATU5 (valor atual em estoque das moedas 1 a 5).
 
@@ -66,7 +64,7 @@ Geração de Cotação de Preço
 Essa rotina permite gerar cotações com base nas solicitações de compras cadastradas.
 
 PEDIDO DE COMPRA
-Compras: Aceite de Condições Comerciais >> Financeiro: Apresentação do Dsembolso / Fluxo de Caixa >> Estoque: Quantidade prevista para entrar
+Compras: Aceite de Condições Comerciais >> Financeiro: Apresentação do Desembolso / Fluxo de Caixa >> Estoque: Quantidade prevista para entrar
 O pedido de compra pode ser gerado manualmente, relacionado a uma solicitação de compras previamente cadastrada ou automaticamente, por meio da análise da melhor cotação. No entanto, a existência de uma solicitação para a inclusão do pedido de compra não é obrigatória e depende da parametrização inicial.
 Um pedido de compra pode ser alterado até a entrega do material, seja para celebrar uma nova condição ou para cancelar o pedido de compra.
 
@@ -86,7 +84,7 @@ ENTRADAS
 - FORNECEDORES : Beneficiação, Devolução de Compras, Remessa para Conserto
 
 1.6 COMERCIALIZAÇÃO
-As vendas serão caracterizadas apenas pela emissão do documento fiscal que acompanhará a mercadoria até a sua entrega no cliente, dai se ternando parte integrante de seu ativo
+As vendas serão caracterizadas apenas pela emissão do documento fiscal que acompanhará a mercadoria até a sua entrega no cliente, dai se tornando parte integrante de seu ativo
 
 1.7 ENCERRAMENTO
 Será analisado o Custo final da mercadoria vendida em contra partida a quantidade adquirida no período e saldo inicial dos mesmos, devendo não haver divergências.
@@ -144,7 +142,7 @@ B1_UPRC Último preço de compra, B1_CUSTD Custo Standard do produto. Informaç�
 MATÉRIA PRIMA -> TRANSFORMAÇÃO  |   INSUMOS -> AGREGADO À PRODUÇÃO  |   CONSUMO -> AGREGADOS AOS PROCESSOS PRODUTIVOS, CONSUMÍVEIS PARA ADMINISTRAÇÃO   |   SEMIACABADOS -> PARTE DO PROCESSO, CONJUNTOS, INTERMEDIÁRIO, A BENEFICIAR   | BENEFICIADOS -> MATÉRIA PRIMA, SEMIACABADOS ENVIADOS A FORNECEDORES PARA TRATAMENTO, MONTAGEM QUE SERÃO AGREGADOS AOS CUSTOS DE SERVIÇOS    |   PRODUTO ACABADO -> PRODUTO PRONTO PARA COMERCIALIZAÇÃO    |   MÃO DE OBRA DIRETA -> CUSTO DE PRODUÇÃO E OU MANIPULAÇÃO MANUAL
 
 ESTRUTURA
-O cadastro de Estruturas, lista de materiais ou BILL OF MATERIALS, é utilizado para cálculode necessidades, explosão dessas necessidades e detalhamento da composição dos produtos.
+O cadastro de Estruturas, lista de materiais ou BILL OF MATERIALS, é utilizado para cálculo de necessidades, explosão dessas necessidades e detalhamento da composição dos produtos.
 ESTRUTURAS: Relacionamento entre componentes    |   COMPOSIÇÃO: Quantidades, Indíces de perda, Data de Utilização, Observações, Opcionais   |   REVISÃO DE ESTRUTURA: Data de validade, Data de Utilização
 INFORMAÇÕES DO CADASTRO DE ESTRUTURAS
 Código, Unidade, Revisão, Estrutura Similar, Quantidade
@@ -159,8 +157,7 @@ Relaciona todos os componentes e as etapas de fabricação determinadas pela sua
 - Por meio da rotina de geração de OPs por ponto de pedido.
 - Por meio do MRP.
 Ao abrir a OP, é lida a estrutura do produto e são empenhados os componentes necessários para sua fabricação.
-Os produtos intermediários que não possuem saldo disponível terão ordens de produção geradas e as matérias-primas que
-não possuem saldo terão solicitações de compra ou autorizações de entrega geradas.
+Os produtos intermediários que não possuem saldo disponível terão ordens de produção geradas e as matérias-primas que não possuem saldo terão solicitações de compra ou autorizações de entrega geradas.
 Os empenhos gerados podem ser alterados em relação à quantidade, ao local, ao lote etc. Eles são baixados no momentoda produção, automaticamente, ou podem ser requisitados, manualmente, para a OP.
 Para identificar se um produto é comprado (matéria-prima) ou fabricado (produto intermediário), o Sistema verifica o arquivo de estruturas: o item que possui estrutura cadastrada é fabricado e os itens que não possuem estrutura são comprados.
 A ordem de produção é a entidade do Sistema que agrega o custo de vários insumos e transfere para outro.
@@ -216,7 +213,7 @@ MOVIMENTOS INTERNOS
 - Produção        -> Manual, Automático, PCP1, PCP2
 
 Movimentações Internas de Entrada de Material em Estoque
-0 a 500             D – Devolução Registra uma entrada de saldo, “devolvendo” um saldo anteriormente requisitado ou simplesmente uma entrada de saldo semjustificativa formal.(499 é reservado)   P – Produção Registra uma entrada de saldo por apontamento de produção.
+0 a 500             D – Devolução Registra uma entrada de saldo, “devolvendo” um saldo anteriormente requisitado ou simplesmente uma entrada de saldo sem justificativa formal.(499 é reservado)   P – Produção Registra uma entrada de saldo por apontamento de produção.
 
 Movimentações Internas de Saída de Material em Estoque
 501 a 999           R – Requisição Registra uma saída de saldo por requisição e consequente consumo de saldo.
@@ -233,9 +230,7 @@ Requisição Manual para Consumo - Movimentação de material que tenha como fin
 
 Requisição Manual para Ordem de Produção - Toda e qualquer de matéria prima, insumo ou material de consumo destinado a confecção, montagem, desenvolvimento
 
-Requisição Manual de Consumo Indireto Para Produção - Com a dificuldade de administrar produtos volateis ou de dificil quantificação durante o processo produtivo, denominamos
-que existe um movimento de requisição manual (RE3) para produção, ou seja, retira-se o produto de seu almoxarifado
-padrão e envia-se para a produção mesmo sem saber em qual ordem de produção ou até mesmo quando será consumida.
+Requisição Manual de Consumo Indireto Para Produção - Com a dificuldade de administrar produtos volateis ou de dificil quantificação durante o processo produtivo, denominamos que existe um movimento de requisição manual (RE3) para produção, ou seja, retira-se o produto de seu almoxarifado padrão e envia-se para a produção mesmo sem saber em qual ordem de produção ou até mesmo quando será consumida.
 
 Requisição Manual de Consumo Indireto - Quando o produto de consumo é de dificil quantifação e será utilizado para uso distinto dentro da empresa e que não seja utilizado para a produção.
 
@@ -265,9 +260,49 @@ Produções
 MANUAL      ->    Com empenho, Sem empenho, Com custo, Sem custo
 AUTOMÁTICA  ->    Produto Intermediário
 
+Produção Manual - Produção manual dá-se quando ao apontar a produção, indica-se apenas a quantidade produzida para o documento informado, sem haver nenhum tipo de execução secundária pelas rotinas internas apenas identificando o custo gravado na ordem de produção (SC2) e apropriando esses custos das requisições diretamente ao produto produzido, já tendo os empenhos sidos transferidos anteriormente pelos movimentos de requisição para o valor disponível para valorização dos produtos.
 
+Produção Automatica - 
 
+Desmontagem de Produtos - Esta rotina possibilita a realização das transferências múltiplas, ou seja, transferências de um único produto para vários produtos. É utilizada constantemente na desmontagem de produtos acabados. Será gerada uma requisição do Produto Origem (RE7) e diversas devoluções para os Produtos Destinos (DE7).
 
+7. Planejamento de Materiais - (Material Requirements Planning - calculo da necessidade dos materiais)
+- Ponto Pedido ou Ponto de Resuprimento de estoque
+- Lote Econômico
+- Lote Mínimo
+- Estoque de Segurança ou estoque de cobertura
+- Prazo de entrega ou Lead-time
+- MRP
+
+Objetivo do MRP
+- Rotatividade de estoque – Análise de Custo Médio/FIFO, Custo indireto de manutenção e armazenagem e o custo de perda por obsolescência ou vencimento;
+- Atendimento aos prazos – Reduzir faltas de material e horas de improdutividade, evitar reprogramação acarretando ineficiência nos prazos, eliminação de custos diretos não previstos como horas extras e retrabalho;
+- Produtividade – Analise do ciclo produtivo de equipamentos e da produção da organização ou perdas por ineficiência de equipamentos ou processos;
+- Utilização da capacidade – identificação de limites produtivos
+- Custo de material – Analise de custos de entrada, beneficiamento, produção e da mercadoria vendida.
+
+Níveis de Estoque - Os níveis de estoque são aqueles que determinam as ações de reposição ou de cautelas a serem tomadas quanto as quantidades armazenadas
+
+MRP - Saldos em estoque, Pedido de Vendas, Ordem de Produção, Solicitação de Compra, Empenho, Estoque de segurança, Previsão de vendas, Plano mestre de produção
+
+Como o Sistema calcula o MRP
+Saldo Anterior Estoque (Abatendo Estoque de Segurança) + Entradas Previstas (Ordens de Produção, Solicitações de Compra, Pedidos de Compra em Aberto etc.) - Saídas Previstas
+(Empenhos, Previsões de Venda, Pedidos de Vendas etc.) = Saldo
+Caso o saldo se torne negativo, haverá necessidade. Deve-se considerar para cálculo de necessidade, os campos
+Lote Econômico e Lote Mínimo.
+
+MRP - Parâmetros iniciais - Períodos, Tipo de material, Considerar pedidos em carteira
+
+MRP – Botão Parâmetros - 
+Processamento do MRP? Define o que será considerado para o processamento do MRP,
+sendo que:
+- Pelo PMP, considera PMP (Plano Mestre de Produção) e
+produz para
+estoque.
+- Pela PV (Previsão de Venda), produzirá para suprir a previsão
+de venda. Neste caso, se a quantidade em estoque for
+suficiente para atender a Previsão de Venda, não será criada
+OP/SC.
 
 
 
