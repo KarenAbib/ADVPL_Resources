@@ -42,6 +42,10 @@ Trabalha como uma consulta aos saldos físicos e financeiros dos itens que tiver
 
 SALDO FIFO >>>
 
+Endereços
+O cadastro de endereços trata da organização dos produtos dentro dos armazéns, determinando o lugar exato onde o produto é armazenado.
+O endereçamento permite um controle de estoque mais detalhado possibilitando ao usuário saber em qual box, fila ou qualquer outra denominação que queira, encontrasse o produto.
+
 SOLICITAÇÃO DE COMPRAS
 Documento que inicia o processo de compra, com info p/ executar a cotação e análise como: a quantidade, o prazo e local de entrega.
 Pode ser gerada: Manualmente, Pelo controle de lote econômico e ponto de pedido, Por necessidade da ordem de produção, Pela requisição de produtos ao armazém, Compra Centralizada através de outras Empresas ou filiais
@@ -298,10 +302,58 @@ Processamento do MRP? Define o que será considerado para o processamento do MRP
 - Pelo PMP, considera PMP (Plano Mestre de Produção) e produz para estoque.
 - Pela PV (Previsão de Venda), produzirá para suprir a previsão de venda. Neste caso, se a quantidade em estoque for suficiente para atender a Previsão de Venda, não será criada OP/SC.
 
+Geração das SC's? Se selecionado pela necessidade: As SCs serão aglutinadas pelo total calculado;
+Por OP: As SCs serão geradas de acordo com a necessidade, porém para cada Ordem de Produção.
+
+Geração das OPs Prod. Interme.? Se selecionado pela necessidade: As OPs serão aglutinadas pelo total calculado;
+Por OP: As OPs serão geradas de acordo com a necessidade, porém para cada Ordem de Produção.
+
+Data Inicial / Final PMP / Prev. De Vendas?
+Intervalo de data a ser considerado nos respectivos cadastros.
 
 
+Plano de Mestre de Produção - Por meio da rotina de “MRP”, parametrizada para considerar o plano mestre de produção, o Sistema gera as ordens de produção
+Sistema consultará o estoque naquele momento e mandará produzir apenas o necessário, enquanto o plano mestre de produção gerará ordens de produção na data em que se encontra tal dado, na quantidade exata expressa no plano.
 
 
+Carga Maquina - Este processo tem como objetivo a alocação das operações de cada ordem de produção nos recursos disponíveis, considerando as informações dos calendários, bloqueios de recursos, exceções aos calendários, utilização de ferramentas, entre outras informações. MV_TPHR MV_PRECISA
+Essa alocação poderá servir de base para orientação do trabalho de utilização dos recursos no chão de fábrica, permitindo o planejamento da ocupação das máquinas.
+A rotina de carga máquina sequenciará cada operação das ordens de produção consideradas e demonstrar, graficamente, como foi feita a ocupação de cada recurso.
+
+
+Carga acumulativa - Esta rotina gera uma carga cumulativa das ordens de produção por centro de trabalho (conforme roteiro de operações), mostrando, posteriormente, por meio da consulta ao histograma, o total do número de horas utilizadas pelos recursos e o total do número de horas da capacidade de um centro de trabalho em um determinado período desejado.
+
+Sacramento de Ops - Esta rotina permite que as ordens de produção alocadas pela rotina de carga máquina sejam sacramentadas.
+Uma ordem de produção sacramentada é uma ordem de produção com alocação “travada”; ou seja, nenhum tipo de alteração de prioridade interferirá na alocação da ordem. Uma ordem de produção sacramentada tem as operações em horários definidos e não alterados.
+
+
+Beneficiamento -> Nosso em poder de terceiros -> De terceiro em nosso poder
+
+Em poder de terceiros, temos dois casos básicos:
+Com Movimentação de Estoque, Sem Movimentação de Estoque
+
+Ao se enviar um produto para beneficiamento, executa-se as seguintes tarefas:
+1.Cadastra-se na estrutura, um código para beneficiamento;
+2.Emite-se a nota da matéria-prima referente à remessa para beneficiamento. Esta nota será gravada no arquivo de saldo em poder de terceiros, para o seu controle, nota a nota;
+3.Abre-se uma OP referente ao produto que será resultado do beneficiamento;
+4.Ao receber o material pela nota fiscal de entrada, informar o código do produto do beneficiamento e o número da OP anterior, será gerada a requisição do mesmo produto para a OP em referência.
+
+Operação Triangular - consiste em uma transação que envolve mais de 2 empresas para um processo de beneficiamento.
+
+Beneficiamento com Ordem de Produção - O beneficiamento de produtos de terceiro deverá ser tratado da como apenas agregar insumos, material de consumo e mão de obra a ordem de produção através de empenho manual.
+
+Beneficiar Produto de Terceiro - Esse recebimento se dará através de um documento de entrada simples, podendo haver um pedido de compra de beneficiamento, deverá se utilizar todos os recursos anteriormente informados.
+
+Enviar Produto para Beneficiar em Terceiro - Esse envio se dará através de um documento de entrada simples, podendo haver uma ordem de produção em que um dos componentes seja de beneficiamento, deverá se utilizar todos os recursos anteriormente informados.
+
+Apontamento da Produção - A produção de materiais consiste na informação ao Sistema da execução parcial ou total de uma OP. Caso seja parcial, a OP não é encerrada, permanece em aberto. Esse apontamento de produção não necessita de informação específica vinda do PCP. É o programa mais simples para indicar quantidade produzida.
+Atualiza saldos em estoque, empenhos e o cadastro de Ordens de Produção MV_REQAUT
+
+PRODUÇÃO PCP MODELO I
+Este programa de apontamento de produção atualiza a produção de maneira diferente da produção normal: precisa ser apontado operação por operação e, além dos dados da produção padrão (programa MATA250), atualiza os dados de PCP, como recurso utilizado, hora início e hora fim de utilização da máquina, operador, seqüência de desdobramento etc. Essas informações são validadas com base nos dados gerados pela alocação da carga-máquina.
+
+Produção PCP Modelo II
+Este programa de apontamento de produção atualiza a produção de maneira diferente da produção normal: precisa ser apontado operação por operação e, além dos dados da produção padrão (programa MATA250), atualiza os dados de PCP, como recurso utilizado, hora início e hora fim de utilização da máquina, operador, seqüência de desdobramento etc. Essas informações são validadas com base nos dados preenchidos no roteiro de operações.
 
 
 
