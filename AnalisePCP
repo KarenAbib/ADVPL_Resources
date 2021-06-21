@@ -294,15 +294,12 @@ Lote Econômico e Lote Mínimo.
 MRP - Parâmetros iniciais - Períodos, Tipo de material, Considerar pedidos em carteira
 
 MRP – Botão Parâmetros - 
-Processamento do MRP? Define o que será considerado para o processamento do MRP,
-sendo que:
-- Pelo PMP, considera PMP (Plano Mestre de Produção) e
-produz para
-estoque.
-- Pela PV (Previsão de Venda), produzirá para suprir a previsão
-de venda. Neste caso, se a quantidade em estoque for
-suficiente para atender a Previsão de Venda, não será criada
-OP/SC.
+Processamento do MRP? Define o que será considerado para o processamento do MRP, sendo que:
+- Pelo PMP, considera PMP (Plano Mestre de Produção) e produz para estoque.
+- Pela PV (Previsão de Venda), produzirá para suprir a previsão de venda. Neste caso, se a quantidade em estoque for suficiente para atender a Previsão de Venda, não será criada OP/SC.
+
+
+
 
 
 
