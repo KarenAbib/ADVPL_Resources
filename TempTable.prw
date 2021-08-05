@@ -43,11 +43,7 @@ User Function zLogi()
     oTempTable:Delete()
 
     RestArea(aArea)
-
-Return
-
         
     MsUnlock()
 
-
-Return return_var
+Return
