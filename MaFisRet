@@ -313,4 +313,8 @@ IT_VLRISC				//Valor do imposto ISC (Localizado Peru) por unidade  "PER"
 IT_CRPREPE				//Credito Presumido - Art. 6 Decreto  n28.247
 IT_CRPREMG				//Credito Presumido MG 
 IT_SLDDEP				//Valor de desconto de depedendente fornecedor
+NF_DIFAL
+NF_PPDIFAL
+IT_DIFAL
+LF_DIFAL
 */
